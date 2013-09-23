@@ -52,17 +52,18 @@
 				sss = 'res/screen/android/screen-xhdpi-portrait.png';
 			}
 			var ss_image = '<img src="'+sss+'" width="'+$(window).width()+'" height="'+$(window).height()+'" />';
-			$('#page_splash').html(ss_image);				
+			$('#page_splash').html(ss_image);
+			alert("http://system-hostings.dev.wiredelta.com/colomer/api/offers");
 			$.ajax({
 					type       : "POST",
 					url        : "http://system-hostings.dev.wiredelta.com/colomer/api/offers",
-					crossDomain: true,
+					//crossDomain: true,
 					beforeSend : function() {$.mobile.loading('show')},
 					complete   : function() {$.mobile.loading('hide')},
-					data       : {username : 'subin', password : 'passwordx'},
 					dataType   : 'json',
 					success    : function(response) {
 						//console.error(JSON.stringify(response));
+						alert('response');
 						var offers = '';
 						for(var i=0; i < response.data.length; i++){
 							offers += '<li><img src="'+response.data[i]+'" /></li>';
